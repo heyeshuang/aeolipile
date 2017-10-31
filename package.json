@@ -9,15 +9,18 @@
   },
   "dependencies": {
     "element-ui": "^2.0.0",
-    "vue": "^2.5.2"
+    "vue": "^2.5.2",
+    "vue-markdown": "^2.2.4"
   },
   "engines": {
     "node": ">=6"
   },
   "devDependencies": {
     "autoprefixer": "^6.6.0",
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.24.1",
     "babel-loader": "^6.4.0",
+    "babel-preset-flow": "^6.23.0",
     "babel-preset-vue-app": "^1.2.0",
     "css-loader": "^0.27.0",
     "file-loader": "^0.10.1",
