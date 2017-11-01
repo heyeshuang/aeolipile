@@ -19,9 +19,12 @@
 <script>
 import VueMarkdown from "vue-markdown";
 import { Client } from "dsteem";
-import Prism from 'prismjs'
-// // import './assets/prism-base2tone-meadow-light.css'
-import './assets/prism-atom-dark.css'
+// import Prism from 'prismjs'
+// import './assets/prism-base2tone-meadow-light.css'
+// import './assets/prism-atom-dark.css'
+import Hljs from "highlight.js";
+import './assets/base2tone-sea-light.css'
+// import 'highlight.js/styles/atelier-forest-light.css'
 
 const client = new Client("https://steemd.steemit.com");
 export default {
@@ -31,31 +34,34 @@ export default {
   data: function() {
     return {
       content: {},
-      steemUrl : "https://steemit.com/"
+      steemUrl: "https://steemit.com/"
     };
   },
   created: async function() {
     let c = await client.database.call("get_content", [
-      "heyeshuang", "hugo-mmark-katex" 
-      //test: hugo-mmark-katex, hugo
+      // "heyeshuang", "hugo-mmark-katex"
+      "heyeshuang", "hugo"
       // "anderluiz","syntax-highlight-on-steemit"
     ]);
+    //TODO: error catch
     console.warn(c);
     this.content = c;
   },
-  updated: function(){
-    this.$nextTick(function (){
-    Prism.highlightAll()
-    })
+  updated: function() {
+    this.$nextTick(function() {
+      // Prism.highlightAll()
+      Hljs.initHighlighting();
+      // let blocks = this.$el.querySelectorAll("pre code");
+      // Array.prototype.forEach.call(blocks, Hljs.highlightBlock);
+    });
   }
-
 };
 </script>
 
 <style>
 img {
   max-width: 100%;
-  max-height: 100%
+  max-height: 100%;
 }
 .c {
   flex-basis: 960px;
