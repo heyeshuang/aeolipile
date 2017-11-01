@@ -1,52 +1,72 @@
 <template>
   <div id="app">
     <el-row type="flex" justify="center">
-      <el-col class="center">
+      <el-col class="c">
     <el-card>
     <el-container>
-      <el-header><h2>Some Pandas: 另一只熊猫</h2></el-header>
+      <el-header><h3>Some Pandas: 另一只熊猫</h3></el-header>
       <el-main>
-        <vue-markdown></vue-markdown>
+        <h1>{{content.title}}</h1>
+        <vue-markdown v-bind:source="content.body"></vue-markdown>
       </el-main>
-      <el-footer>Bamboo</el-footer>
+      <el-footer><a :href='steemUrl+"@"+content.author+"/"+content.permlink'>steemit</a>
+      </el-footer>
     </el-container>
     </el-card></el-col></el-row>
   </div>
 </template>
 
 <script>
-// import Typography from 'typography'
-// import customTheme from './typography-theme-custom.js'
+import VueMarkdown from "vue-markdown";
+import { Client } from "dsteem";
+import Prism from 'prismjs'
+// // import './assets/prism-base2tone-meadow-light.css'
+import './assets/prism-atom-dark.css'
+
+const client = new Client("https://steemd.steemit.com");
 export default {
-  methods: {
-    // startHacking () {
-    //   this.$notify({
-    //     title: 'It works!',
-    //     type: 'success',
-    //     message: 'We\'ve laid the ground work for you. It\'s time for you to build something epic!',
-    //     duration: 5000
-    //   })
-    // },
-    // introTypo () {
-      // const typography = new Typography(customTheme)
-      // return typography.toString()
-    // }
+  components: {
+    VueMarkdown
+  },
+  data: function() {
+    return {
+      content: {},
+      steemUrl : "https://steemit.com/"
+    };
+  },
+  created: async function() {
+    let c = await client.database.call("get_content", [
+      "heyeshuang", "hugo-mmark-katex" 
+      //test: hugo-mmark-katex, hugo
+      // "anderluiz","syntax-highlight-on-steemit"
+    ]);
+    console.warn(c);
+    this.content = c;
+  },
+  updated: function(){
+    this.$nextTick(function (){
+    Prism.highlightAll()
+    })
   }
-}
+
+};
 </script>
 
 <style>
-#app {
-  /* font-family: Helvetica, sans-serif;
-  text-align: center; */
+img {
+  max-width: 100%;
+  max-height: 100%
 }
-.center {
+.c {
   flex-basis: 960px;
 }
 .el-card {
   margin: 20px;
 }
+.el-main {
+  padding-top: 0;
+}
 .el-header {
-  text-align: left
+  text-align: left;
 }
 </style>

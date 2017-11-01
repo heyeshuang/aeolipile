@@ -8,7 +8,10 @@
     "build": "rimraf dist && webpack -p --progress --hide-modules"
   },
   "dependencies": {
+    "dsteem": "^0.8.4",
     "element-ui": "^2.0.0",
+    "markdown-it-katex": "git+https://github.com/SuperV1234/markdown-it-katex.git",
+    "prismjs": "^1.8.3",
     "vue": "^2.5.2",
     "vue-markdown": "^2.2.4"
   },
