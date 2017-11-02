@@ -1,8 +1,13 @@
-# TODO
-* loading page
-* error handing
-* styles
-* and this readme
+# Aeolipile: your code and formula on Steem
+
+## TODO
+* [x] loading page
+* [x] error handing
+* [ ] beautiful styles
+* [ ] author page
+* [x] router
+* [ ] table of contents
+* [ ] and this readme
 
 ## Environment
 

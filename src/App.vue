@@ -2,58 +2,33 @@
   <div id="app">
     <el-row type="flex" justify="center">
       <el-col class="c">
-    <el-card>
-    <el-container>
-      <el-header><h3>Some Pandas: 另一只熊猫</h3></el-header>
-      <el-main>
-        <h1>{{content.title}}</h1>
-        <vue-markdown v-bind:source="content.body"></vue-markdown>
-      </el-main>
-      <el-footer><a :href='steemUrl+"@"+content.author+"/"+content.permlink'>steemit</a>
-      </el-footer>
-    </el-container>
+    <el-card >
+        <!-- <p>
+    <router-link to="/@heyeshuang/hugo-mmark-katex">Go to Foo</router-link>
+    <router-link to="/@heyeshuang/hugo">Go to Bar</router-link>
+    <router-link to="/@anderluiz/syntax-highlight-on-steemit">Go to Bar</router-link>
+  </p> -->
+      <router-view ></router-view>
     </el-card></el-col></el-row>
   </div>
 </template>
 
 <script>
-import VueMarkdown from "vue-markdown";
-import { Client } from "dsteem";
-// import Prism from 'prismjs'
-// import './assets/prism-base2tone-meadow-light.css'
-// import './assets/prism-atom-dark.css'
-import Hljs from "highlight.js";
-import './assets/base2tone-sea-light.css'
-// import 'highlight.js/styles/atelier-forest-light.css'
+import ContentContainer from "~/ContentContainer.vue";
+import Typography from 'typography'
+// import customTheme from './typography-theme-custom.js'
+import customTheme from 'typography-theme-trajan'
 
-const client = new Client("https://steemd.steemit.com");
 export default {
   components: {
-    VueMarkdown
+    ContentContainer
   },
-  data: function() {
-    return {
-      content: {},
-      steemUrl: "https://steemit.com/"
-    };
-  },
-  created: async function() {
-    let c = await client.database.call("get_content", [
-      // "heyeshuang", "hugo-mmark-katex"
-      "heyeshuang", "hugo"
-      // "anderluiz","syntax-highlight-on-steemit"
-    ]);
-    //TODO: error catch
-    console.warn(c);
-    this.content = c;
-  },
-  updated: function() {
-    this.$nextTick(function() {
-      // Prism.highlightAll()
-      Hljs.initHighlighting();
-      // let blocks = this.$el.querySelectorAll("pre code");
-      // Array.prototype.forEach.call(blocks, Hljs.highlightBlock);
-    });
+  methods: {
+    getCSSString: function () {
+      const typography = new Typography(customTheme)
+      console.warn(typography.toString())
+      return typography.toString()
+    }
   }
 };
 </script>
@@ -68,11 +43,5 @@ img {
 }
 .el-card {
   margin: 20px;
-}
-.el-main {
-  padding-top: 0;
-}
-.el-header {
-  text-align: left;
 }
 </style>
