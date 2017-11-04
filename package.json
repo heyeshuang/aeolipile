@@ -8,14 +8,20 @@
     "build": "rimraf dist && webpack -p --progress --hide-modules"
   },
   "dependencies": {
+    "clipboard": "^1.7.1",
     "dsteem": "^0.8.4",
     "element-ui": "^2.0.0",
     "highlight.js": "^9.12.0",
     "markdown-it-katex": "git+https://github.com/SuperV1234/markdown-it-katex.git",
     "prismjs": "^1.8.3",
+    "speakingurl": "^14.0.1",
     "typography": "^0.16.6",
+    "typography-plugin-code": "^0.15.11",
+    "typography-theme-alton": "^0.15.10",
     "typography-theme-trajan": "^0.1.3",
+    "typography-theme-zacklive": "^1.0.2",
     "vue": "^2.5.2",
+    "vue-clipboard2": "0.0.6",
     "vue-markdown": "^2.2.4",
     "vue-router": "^3.0.1"
   },

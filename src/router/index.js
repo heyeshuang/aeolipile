@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Content from '~/ContentContainer.vue'
+import Content from '~/components/ContentContainer.vue'
+import LinkGen from '~/components/LinkGenerator.vue'
 Vue.use(Router)
 export default new Router({
   routes: [
@@ -9,8 +10,12 @@ export default new Router({
       component: Content
     },
     {
-      path: '/',
+      path: '/linkgen',
+      component: LinkGen
+    },
+    {
+      path: '/*',
       redirect: '/@heyeshuang/null'
-    }
+    },
   ]
 })
