@@ -18,12 +18,15 @@
     "typography": "^0.16.6",
     "typography-plugin-code": "^0.15.11",
     "typography-theme-alton": "^0.15.10",
+    "typography-theme-moraga": "^0.15.10",
     "typography-theme-trajan": "^0.1.3",
+    "typography-theme-us-web-design-standards": "^0.15.10",
     "typography-theme-zacklive": "^1.0.2",
     "vue": "^2.5.2",
     "vue-clipboard2": "0.0.6",
     "vue-markdown": "^2.2.4",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "webfontloader": "^1.6.28"
   },
   "engines": {
     "node": ">=6"

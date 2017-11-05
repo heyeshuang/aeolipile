@@ -51,12 +51,17 @@ This page is not a replacement of steemit.com or else, so I will keep it simple 
 * [x] loading page
 * [x] error handing
 * [ ] beautiful styles
-    * load Google font, maybe Web Font Loader?
+    * [x] load Google font, maybe Web Font Loader?
+    * [ ] code tag
+* [x] change the theme
+* [ ] trim! 
 * [ ] author page
 * [x] router
 * [ ] table of contents
-* [ ] page to get permlink
+* [x] page to get permlink
+* [ ] links for homepage
 * [ ] and this readme
+  * Some credits!
 
 ## Environment
 

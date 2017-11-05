@@ -1,93 +1,78 @@
 // @flow
+import type {
+  OptionsType
+} from 'Types'
 import gray from 'gray-percentage'
-import type { OptionsType } from 'Types'
-import { MOBILE_MEDIA_QUERY } from 'typography-breakpoint-constants'
+import {
+  TABLET_MEDIA_QUERY
+} from 'typography-breakpoint-constants'
+import verticalRhythm from 'compass-vertical-rhythm'
 
 const theme: OptionsType = {
-  title: 'Wordpress Theme 2016',
-  baseFontSize: '16px',
-  baseLineHeight: 1.75,
-  scaleRatio: 5 / 2,
-  googleFonts: [
-    {
-      name: 'Montserrat',
-      styles: ['700'],
-    },
-    {
-      name: 'Merriweather',
-      styles: ['400', '400i', '700', '700i', '900', '900i'],
-    },
-  ],
-  headerFontFamily: ['Merriweather', 'Georgia', 'serif'],
-  bodyFontFamily: ['Merriweather', 'Georgia', 'serif'],
-  bodyColor: 'hsla(0,0%,0%,0.9)',
-  headerWeight: 900,
+  title: 'Moraga',
+  baseFontSize: '18px',
+  baseLineHeight: 1.56,
+  googleFonts: [{
+    name: 'Source Sans Pro',
+    styles: ['200', '400', '400i', '700'],
+  }, ],
+  scaleRatio: 2.5,
+  headerFontFamily: ['Source Sans Pro', 'sans-serif'],
+  bodyFontFamily: ['Source Sans Pro', 'sans-serif'],
+  headerColor: 'hsla(0,0%,0%,0.85)',
+  bodyColor: 'hsla(0,0%,0%,0.7)',
+  headerWeight: '200',
   bodyWeight: 400,
   boldWeight: 700,
-  overrideStyles: ({ adjustFontSizeTo, scale, rhythm }, options) => ({
-    h1: {
-      fontFamily: ['Montserrat', 'sans-serif'].join(','),
-    },
-    blockquote: {
-      ...scale(1 / 5),
-      color: gray(41),
-      fontStyle: 'italic',
-      paddingLeft: rhythm(13 / 16),
-      marginLeft: rhythm(-1),
-      borderLeft: `${rhythm(3 / 16)} solid ${gray(10)}`,
-    },
-    'blockquote > :last-child': {
-      marginBottom: 0,
-    },
-    'blockquote cite': {
-      ...adjustFontSizeTo(options.baseFontSize),
-      color: options.bodyColor,
-      fontWeight: options.bodyWeight,
-    },
-    'blockquote cite:before': {
-      content: '"— "',
-    },
-    ul: {
-      listStyle: 'disc',
-    },
-    'ul,ol': {
-      marginLeft: 0,
-    },
-    [MOBILE_MEDIA_QUERY]: {
-      'ul,ol': {
-        marginLeft: rhythm(1),
+  overrideStyles: ({
+    scale,
+    rhythm
+  }, options) => {
+    const vr = verticalRhythm({
+      baseFontSize: '16px',
+      baseLineHeight: '24.88px',
+    })
+
+    const styles = {
+      'h1 a,h2 a,h3 a,h4 a,h5 a,h6 a': {
+        fontWeight: options.headerWeight,
+      },
+      'h3, h4, h5, h6': {
+      },
+      a: {
+        fontWeight: 400,
+        color: '#419eda',
+        textDecoration: 'none',
+      },
+      'a:hover': {
+        color: '#2a6496',
+        textDecoration: 'underline',
       },
       blockquote: {
-        marginLeft: rhythm(-3 / 4),
-        marginRight: 0,
-        paddingLeft: rhythm(9 / 16),
+        ...scale(1 / 5),
+        color: gray(40),
+        paddingLeft: rhythm(3 / 4),
+        marginLeft: 0,
+        borderLeft: `${rhythm(1 / 4)} solid ${gray(87)}`,
       },
-    },
-    'h1,h2,h3,h4,h5,h6': {
-      marginTop: rhythm(2),
-    },
-    h4: {
-      letterSpacing: '0.140625em',
-      textTransform: 'uppercase',
-    },
-    h6: {
-      fontStyle: 'italic',
-    },
-    a: {
-      boxShadow: '0 1px 0 0 currentColor',
-      color: '#007acc',
-      textDecoration: 'none',
-    },
-    'a:hover,a:active': {
-      boxShadow: 'none',
-    },
-    'mark,ins': {
-      background: '#007acc',
-      color: 'white',
-      padding: `${rhythm(1 / 16)} ${rhythm(1 / 8)}`,
-      textDecoration: 'none',
-    },
-  }),
+      // Mobile styles.
+      [TABLET_MEDIA_QUERY]: {
+        html: {
+          ...vr.establishBaseline(),
+        },
+        blockquote: {
+          marginLeft: rhythm(-3 / 4),
+          marginRight: 0,
+          paddingLeft: rhythm(1 / 2),
+        },
+        table: {
+          ...scale(-1 / 5),
+        },
+      },
+    }
+
+    return styles
+  },
 }
 
 export default theme
