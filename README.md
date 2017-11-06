@@ -52,9 +52,17 @@ This page is not a replacement of steemit.com or else, so I will keep it simple 
 * [x] error handing
 * [ ] beautiful styles
     * [x] load Google font, maybe Web Font Loader?
-    * [ ] code tag
+      * [x] Wait! It cant be used in China!
+    * [ ] Experimental: CHINESE web font!
+    * [x] code tag
 * [x] change the theme
-* [ ] trim! 
+* [ ] trim!
+  * [ ] ElementUI
+  * [x] highlight.js
+  * [ ] dsteem
+  * [ ] KaTeX
+  * [x] Vue
+  * [ ] lodash -> typography
 * [ ] author page
 * [x] router
 * [ ] table of contents

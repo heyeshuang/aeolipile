@@ -1,3 +1,9 @@
 {
-  "presets": ["vue-app","flow"]
+  "presets": ["vue-app","flow"],
+  "plugins": [["component", [
+   {
+     "libraryName": "element-ui",
+     "styleLibraryName": "theme-chalk"
+   }
+ ]]]
 }

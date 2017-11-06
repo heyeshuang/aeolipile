@@ -13,7 +13,6 @@
     "element-ui": "^2.0.0",
     "highlight.js": "^9.12.0",
     "markdown-it-katex": "git+https://github.com/SuperV1234/markdown-it-katex.git",
-    "prismjs": "^1.8.3",
     "speakingurl": "^14.0.1",
     "typography": "^0.16.6",
     "typography-plugin-code": "^0.15.11",
@@ -36,6 +35,7 @@
     "babel-cli": "^6.26.0",
     "babel-core": "^6.24.1",
     "babel-loader": "^6.4.0",
+    "babel-plugin-component": "^0.10.1",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-vue-app": "^1.2.0",
     "css-loader": "^0.27.0",
@@ -47,7 +47,8 @@
     "url-loader": "^0.5.8",
     "vue-loader": "^13.3.0",
     "vue-template-compiler": "^2.5.2",
-    "webpack": "^2.4.1",
+    "webpack": "3.0.0",
+    "webpack-bundle-analyzer": "^2.9.0",
     "webpack-dev-server": "^2.4.2"
   }
 }

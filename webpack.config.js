@@ -1,6 +1,7 @@
 const resolve = require('path').resolve
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const url = require('url')
 const publicPath = ''
 
@@ -8,6 +9,13 @@ module.exports = (options = {}) => ({
   entry: {
     vendor: './src/vendor',
     index: './src/main.js'
+  },
+  externals: {
+    'highlight.js': 'hljs',
+    // 'highlight.js': 'Hljs',
+    // 'katex': 'katex',
+    'vue': 'Vue',
+    'vue-router': 'VueRouter',
   },
   output: {
     path: resolve(__dirname, 'dist'),
@@ -46,7 +54,9 @@ module.exports = (options = {}) => ({
     }),
     new HtmlWebpackPlugin({
       template: 'src/index.html'
-    })
+    }),
+    new BundleAnalyzerPlugin(),
+    // new webpack.optimize.ModuleConcatenationPlugin()
   ],
   resolve: {
     alias: {

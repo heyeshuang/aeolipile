@@ -18,7 +18,6 @@
 <script>
 // import ContentContainer from "~/components/ContentContainer.vue";
 import Typography from "typography";
-import CodePlugin from 'typography-plugin-code'
 import customTheme from '~/typography-theme-custom.js'
 // import customTheme from "typography-theme-alton";
 // import customTheme from "typography-theme-trajan";
@@ -33,11 +32,8 @@ export default {
   methods: {
     getCSSString: function() {
       // customTheme.headerFontFamily = [ 'Martel','Georgia', "Times New Roman","KaiTi", "楷体", 'STKaiti', "华文楷体",'serif']
-      customTheme.headerFontFamily = ['Neuton','Georgia', "Times New Roman", "FangSong", "仿宋", 'STFangSong', "华文仿宋", 'serif']
-      customTheme.bodyFontFamily = ['Open Sans','Helvetica Neue','Helvetica','Arial','Source Han Sans SC','sans-serif']
       // customTheme.headerWeight = '700'
       // customTheme.scaleRatio = 5
-      customTheme.plugins = [new CodePlugin()];
       const typography = new Typography(customTheme);
       // console.warn(typography.toString())
       typography.injectStyles()
