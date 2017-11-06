@@ -68,6 +68,7 @@ This page is not a replacement of steemit.com or else, so I will keep it simple 
 * [ ] table of contents
 * [x] page to get permlink
 * [ ] links for homepage
+* [ ] maybe some loading?
 * [ ] and this readme
   * Some credits!
 

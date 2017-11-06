@@ -1,14 +1,16 @@
 const resolve = require('path').resolve
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin')
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const url = require('url')
 const publicPath = ''
 
 module.exports = (options = {}) => ({
   entry: {
-    vendor: './src/vendor',
-    index: './src/main.js'
+    // vendor: './src/vendor',
+    index: './src/main.js',
+    vendor: ['dsteem', 'katex']
   },
   externals: {
     'highlight.js': 'hljs',
@@ -20,7 +22,8 @@ module.exports = (options = {}) => ({
   output: {
     path: resolve(__dirname, 'dist'),
     filename: options.dev ? '[name].js' : '[name].js?[chunkhash]',
-    chunkFilename: '[id].js?[chunkhash]',
+    // chunkFilename: '[id].js?[chunkhash]',
+    chunkFilename: '[name]-[chunkhash].js',
     publicPath: options.dev ? '/assets/' : publicPath
   },
   module: {
@@ -55,7 +58,10 @@ module.exports = (options = {}) => ({
     new HtmlWebpackPlugin({
       template: 'src/index.html'
     }),
-    new BundleAnalyzerPlugin(),
+    new ScriptExtHtmlWebpackPlugin({
+      defaultAttribute: 'async'
+    })
+    // new BundleAnalyzerPlugin(),
     // new webpack.optimize.ModuleConcatenationPlugin()
   ],
   resolve: {

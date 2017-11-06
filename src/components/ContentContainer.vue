@@ -8,9 +8,12 @@
   </el-main>
   <el-main v-if="emptyContent">
     <h1>Ain't Nobody Here but Us Chickens</h1>
-    <p>This is the default page of Aeolipile. </p><p>Maybe you have a wrong URL?</p>
-    <p>See the <router-link to="/@heyeshuang/aeolipile-your-code-and-formula-on-steem">instruction of Aeolipile</router-link>, or</p>
-    <p>Go to <router-link to="/linkgen">Aeolipile Link Generator</router-link>.</p>
+    <p>This is the default page of Aeolipile. </p>
+    <p>Maybe you have a wrong URL?</p>
+    <p>See the
+      <router-link to="/@heyeshuang/aeolipile-your-code-and-formula-on-steem">instruction of Aeolipile</router-link>, or</p>
+    <p>Go to
+      <router-link to="/linkgen">Aeolipile Link Generator</router-link>.</p>
   </el-main>
   <el-footer>
     <hr /><small><span v-show="loaded">
@@ -27,14 +30,12 @@
 
 <script>
 import VueMarkdown from "vue-markdown";
-import {
-  Client
-} from "dsteem";
 // import Prism from 'prismjs'
 // import './assets/prism-base2tone-meadow-light.css'
 // import './assets/prism-atom-dark.css'
 import Hljs from "highlight.js";
 import "~/assets/base2tone-sea-light.css";
+const dSteem = () => import ( /* webpackChunkName: "dsteem" */ "dsteem");
 // import 'highlight.js/styles/atelier-forest-light.css'
 
 export default {
@@ -85,7 +86,8 @@ export default {
       let c;
       // console.warn(this.$route.params.author, this.$route.params.permlink);
       try {
-        const client = await new Client("https://steemd.steemit.com");
+        const dsteem = await dSteem()
+        const client = await new dsteem.Client("https://steemd.steemit.com");
         c = await client.database.call("get_content", [
           this.$route.params.author,
           this.$route.params.permlink
