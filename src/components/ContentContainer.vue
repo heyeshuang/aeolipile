@@ -19,10 +19,10 @@
     <hr /><small><span v-show="loaded">
           You can see the origin post at
         <a :href='steemitUrl+content.category+"/@"+content.author+"/"+content.permlink'>steemit</a>,
-        <a :href='steemcnUrl+content.category+"/@"+content.author+"/"+content.permlink'>cnsteem</a>, or
+        <a :href='cnsteemUrl+content.category+"/@"+content.author+"/"+content.permlink'>cnsteem</a>, or
         <a :href='busyUrl+content.category+"/@"+content.author+"/"+content.permlink'>busy.org</a>. </span>
           <span>Also you may want to <a href="https://github.com/heyeshuang/aeolipile">fork Aeolipile on Github</a>.</span></small>
-    <!-- <a :href='steemcnUrl+"@"+content.author+"/"+content.permlink'>steemit</a> -->
+    <!-- <a :href='cnsteemUrl+"@"+content.author+"/"+content.permlink'>steemit</a> -->
     <!-- <a :href='steemUrl+"@"+content.author+"/"+content.permlink'>steemit</a> -->
   </el-footer>
 </el-container>
@@ -46,7 +46,7 @@ export default {
     return {
       content: {},
       steemitUrl: "https://steemit.com/",
-      steemcnUrl: "https://cnsteem.com/",
+      cnsteemUrl: "https://cnsteem.com/",
       busyUrl: "https://busy.org/",
       loading: true,
       loaded: false,
