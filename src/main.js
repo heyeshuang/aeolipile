@@ -10,13 +10,13 @@ import WebFont from 'webfontloader'
 
 WebFont.load({
   google: {
-    families: ['Neuton:200', 'Open Sans']
+    families: ['Neuton:200','Open Sans']
   },
   fontinactive: function(family, fvd) {
     if (family === 'Neuton' && 'Open Sans') {
       WebFont.load({
         custom: {
-          families: ['Neuton:200', 'Open Sans'],
+          families: ['Neuton:200','Open Sans'],
           urls: ['https://fonts.cat.net/css?family=Neuton:200|Open+Sans']
         }
       })

@@ -1,5 +1,5 @@
 <template>
-<div id="app" :style="getCSSString()">
+<div id="app">
   <el-row type="flex" justify="center">
     <el-col class="c">
       <el-card>
@@ -17,8 +17,9 @@
 
 <script>
 // import ContentContainer from "~/components/ContentContainer.vue";
-import Typography from "typography";
-import customTheme from '~/typography-theme-custom.js'
+// import Typography from "typography";
+// import customTheme from '~/typo/typography-theme-source-han-serif.js'
+// import customTheme from '~/typo/typography-theme-fangsong.js'
 // import customTheme from "typography-theme-alton";
 // import customTheme from "typography-theme-trajan";
 // import customTheme from "typography-theme-moraga";
@@ -42,7 +43,7 @@ export default {
   }
 };
 </script>
-
+<style src="~/typo/typo-fangsong.css"></style>
 <style>
 img {
   max-width: 100%;

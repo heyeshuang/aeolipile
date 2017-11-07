@@ -2,7 +2,7 @@ const resolve = require('path').resolve
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin')
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const url = require('url')
 const publicPath = ''
 
@@ -60,9 +60,9 @@ module.exports = (options = {}) => ({
     }),
     new ScriptExtHtmlWebpackPlugin({
       defaultAttribute: 'async'
-    })
-    // new BundleAnalyzerPlugin(),
-    // new webpack.optimize.ModuleConcatenationPlugin()
+    }),
+    new BundleAnalyzerPlugin(),
+    new webpack.optimize.ModuleConcatenationPlugin()
   ],
   resolve: {
     alias: {

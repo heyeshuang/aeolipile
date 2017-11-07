@@ -50,7 +50,7 @@ This page is not a replacement of steemit.com or else, so I will keep it simple 
 ## TODO
 * [x] loading page
 * [x] error handing
-* [ ] beautiful styles
+* [x] beautiful styles
     * [x] load Google font, maybe Web Font Loader?
       * [x] Wait! It cant be used in China!
     * [ ] Experimental: CHINESE web font!
@@ -62,13 +62,13 @@ This page is not a replacement of steemit.com or else, so I will keep it simple 
   * [ ] dsteem
   * [ ] KaTeX
   * [x] Vue
-  * [ ] lodash -> typography
+  * [x] lodash -> typography
 * [ ] author page
 * [x] router
 * [ ] table of contents
 * [x] page to get permlink
-* [ ] links for homepage
-* [ ] maybe some loading?
+* [x] links for homepage
+* [x] maybe some loading?
 * [ ] and this readme
   * Some credits!
 
