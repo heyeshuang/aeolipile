@@ -418,7 +418,7 @@ pre {
   margin-bottom: 1.56rem;
   font-size: 0.85rem;
   line-height: 1.42;
-  background: hsla(0, 0%, 0%, 0.04);
+  background: #FAFAFA;
   border-radius: 3px;
   overflow: auto;
   word-wrap: normal;
@@ -637,7 +637,7 @@ th:last-child, td:last-child {
 }
 
 tt, code {
-  background-color: hsla(0, 0%, 0%, 0.04);
+  background-color: #FAFAFA;
   border-radius: 3px;
   font-family: "SFMono-Regular", Consolas, "Roboto Mono", "Droid Sans Mono", "Liberation Mono", Menlo, Courier, monospace;
   padding: 0;

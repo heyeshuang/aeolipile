@@ -34,7 +34,7 @@ import VueMarkdown from "vue-markdown";
 // import './assets/prism-base2tone-meadow-light.css'
 // import './assets/prism-atom-dark.css'
 import Hljs from "highlight.js";
-import "~/assets/base2tone-sea-light.css";
+// import "~/assets/base2tone-sea-light.css";
 const dSteem = () => import ( /* webpackChunkName: "dsteem" */ "dsteem");
 // import 'highlight.js/styles/atelier-forest-light.css'
 
@@ -87,7 +87,7 @@ export default {
       // console.warn(this.$route.params.author, this.$route.params.permlink);
       try {
         const dsteem = await dSteem()
-        const client = await new dsteem.Client("https://steemd.steemit.com");
+        const client = await new dsteem.Client("https://api.steemit.com");
         c = await client.database.call("get_content", [
           this.$route.params.author,
           this.$route.params.permlink

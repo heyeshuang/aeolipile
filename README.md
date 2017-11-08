@@ -55,6 +55,11 @@ This page is not a replacement of steemit.com or else, so I will keep it simple 
       * [x] Wait! It cant be used in China!
     * [ ] Experimental: CHINESE web font!
     * [x] code tag
+    * [ ] highlight.js theme
+* [ ] extract config file
+  * USERNAME
+  * Google font
+  * header text
 * [x] change the theme
 * [ ] trim!
   * [ ] ElementUI
