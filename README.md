@@ -69,7 +69,10 @@ This page is not a replacement of steemit.com or else, so I will keep it simple 
   * [x] Vue
   * [x] lodash -> typography
 * [ ] author page
+  * show resteemed posts as another color
+  * tag page (if possible)
 * [x] router
+* [ ] add time and tag at post
 * [ ] table of contents
 * [x] page to get permlink
 * [x] links for homepage

@@ -19,7 +19,7 @@ const theme: OptionsType = {
   }, ],
   scaleRatio: 2.5,
   headerFontFamily: ['Neuton', 'Georgia', "Times New Roman", "FangSong", "仿宋", 'STFangSong', "华文仿宋", 'serif'],
-  bodyFontFamily: ['Open Sans', 'Helvetica Neue', 'Helvetica', 'Arial', 'Noto Sans CJK SC', 'Noto Sans CJK', 'Source Han Sans', 'Source Han Sans SC', 'source-han-sans-simplified-c', 'sans-serif'],
+  bodyFontFamily: ['Open Sans', 'Helvetica Neue', 'Helvetica', 'Arial', 'Noto Sans CJK SC', 'Noto Sans CJK', 'Source Han Sans SC', 'Source Han Sans', 'source-han-sans-simplified-c', 'sans-serif'],
   headerColor: 'hsla(0,0%,0%,0.85)',
   bodyColor: 'hsla(0,0%,0%,0.7)',
   headerWeight: '200',

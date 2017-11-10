@@ -1,19 +1,13 @@
 <template>
 <el-container v-loading="loading">
   <el-header>
-    <h3>Aeolipile - Steem Powered</h3></el-header>
+    <h3>{{showBanner()}}</h3></el-header>
   <el-main v-show="loaded">
     <h1>{{content.title}}</h1>
     <vue-markdown v-bind:source="content.body" :postrender="this.highLightHTML"></vue-markdown>
   </el-main>
   <el-main v-if="emptyContent">
-    <h1>Ain't Nobody Here but Us Chickens</h1>
-    <p>This is the default page of Aeolipile. </p>
-    <p>Maybe you have a wrong URL?</p>
-    <p>See the
-      <router-link to="/@heyeshuang/aeolipile-your-code-and-formula-on-steem">instruction of Aeolipile</router-link>, or</p>
-    <p>Go to
-      <router-link to="/linkgen">Aeolipile Link Generator</router-link>.</p>
+    <DefaultContent></DefaultContent>
   </el-main>
   <el-footer>
     <hr /><small><span v-show="loaded">
@@ -30,17 +24,20 @@
 
 <script>
 import VueMarkdown from "vue-markdown";
+import DefaultContent from "~/components/DefaultContent.vue"
 // import Prism from 'prismjs'
 // import './assets/prism-base2tone-meadow-light.css'
 // import './assets/prism-atom-dark.css'
 import Hljs from "highlight.js";
 // import "~/assets/base2tone-sea-light.css";
-const dSteem = () => import ( /* webpackChunkName: "dsteem" */ "dsteem");
+const dSteem = () =>
+  import ( /* webpackChunkName: "dsteem" */ "dsteem");
 // import 'highlight.js/styles/atelier-forest-light.css'
 
 export default {
   components: {
-    VueMarkdown
+    VueMarkdown,
+    DefaultContent
   },
   data: function() {
     return {
@@ -56,7 +53,6 @@ export default {
   created: function() {
     this.getContent();
   },
-  //TODO:watch https://router.vuejs.org/zh-cn/advanced/data-fetching.html
   watch: {
     $route: "getContent"
   },
@@ -70,6 +66,9 @@ export default {
   //   });
   // },
   methods: {
+    showBanner: function() {
+      return Vue.siteConfig.banner
+    },
     highLightHTML: function(html) {
       let parser = new DOMParser();
       let htmlDoc = parser.parseFromString(html, "text/html");
@@ -87,7 +86,7 @@ export default {
       // console.warn(this.$route.params.author, this.$route.params.permlink);
       try {
         const dsteem = await dSteem()
-        const client = await new dsteem.Client("https://api.steemit.com");
+        const client = await new dsteem.Client(Vue.siteConfig.apiUrl);
         c = await client.database.call("get_content", [
           this.$route.params.author,
           this.$route.params.permlink
