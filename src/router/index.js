@@ -4,23 +4,29 @@ import Content from '~/components/ContentContainer.vue'
 import LinkGen from '~/components/LinkGenerator.vue'
 import PostList from '~/components/PostList.vue'
 Vue.use(Router)
-export default new Router({
-  routes: [
+const routeConf = function() {
+  let routes = [
+    {
+      path: '/linkgen',
+      component: LinkGen
+    },
+  ]
+  routes = routes.concat([
     {
       path: '/@:author/:permlink',
       component: Content
     },
     {
-      path: '/linkgen',
-      component: LinkGen
-    },
-    {
-      path: '/list',
+      path: '/@:author',
       component: PostList
     },
     {
       path: '/*',
       redirect: '/@heyeshuang/null'
     },
-  ]
+  ]);
+  return routes
+}
+export default new Router({
+  routes: routeConf()
 })

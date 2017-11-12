@@ -1,10 +1,10 @@
 <template>
-<el-container v-loading="loading">
+<el-container>
   <el-header>
     <h3>{{showBanner()}}</h3>
   </el-header>
   <el-main>
-    <h1>Archive for {{author}}</h1>
+    <h1>Archive for <i>{{author}}</i></h1>
     <div class="listItem" v-for="d in contentList">
       <div class="itemTitle">
         <router-link :to="genLink(d.author,d.permlink)">
@@ -16,19 +16,22 @@
         <div class="tags"><span class="tag" v-for="t in parseJsonTags(d.json_metadata)">&nbsp;#{{t}}&nbsp;</span></div>
       </div></h4>
     </div>
-    <p @click="updateList">click</p>
+    <div class="loadingContainer listItem" v-if="!endOfList">
+      <div v-if="loading" class="more"><i class="el-icon-loading"></i><b>LOADING</b></div>
+      <div class="more" @click="updateList" v-else><a href="javascript:void(0)">MORE...</a></div>
+    </div>
   </el-main>
   <el-main v-if="emptyContent">
     <DefaultContent></DefaultContent>
   </el-main>
-  <!-- <el-footer> -->
-    <!-- <hr /><small><span v-show="loaded">
-          You can see the origin post at
-        <a :href='steemitUrl+content.category+"/@"+content.author+"/"+content.permlink'>steemit</a>,
-        <a :href='cnsteemUrl+content.category+"/@"+content.author+"/"+content.permlink'>cnsteem</a>, or
-        <a :href='busyUrl+content.category+"/@"+content.author+"/"+content.permlink'>busy.org</a>. </span>
-          <span>Also you may want to <a href="https://github.com/heyeshuang/aeolipile">fork Aeolipile on Github</a>.</span></small> -->
-  <!-- </el-footer> -->
+  <el-footer>
+    <hr /><small><span v-show="loaded">
+          You can see this blog at
+        <a :href='steemitUrl+"@"+author'>steemit</a>,
+        <a :href='cnsteemUrl+"@"+author'>cnsteem</a>, or
+        <a :href='busyUrl+"@"+author'>busy.org</a>. </span>
+          <span>Also you may want to <a href="https://github.com/heyeshuang/aeolipile">fork Aeolipile on Github</a>.</span></small>
+  </el-footer>
 </el-container>
 </template>
 <script>
@@ -38,11 +41,14 @@ const dSteem = () =>
 export default {
   data: function() {
     return {
+      steemitUrl: "https://steemit.com/",
+      cnsteemUrl: "https://cnsteem.com/",
+      busyUrl: "https://busy.org/",
       contentList: [],
       loading: true,
       loaded: false,
       emptyContent: false,
-      author: "elear",
+      author: this.$route.params.author,
       start_permlink: "",
       endOfList: false,
       listLimit: 10
@@ -148,6 +154,7 @@ export default {
 .el-header {
   text-align: left;
 }
+
 .listItem {
   margin: 10px
 }
@@ -157,19 +164,31 @@ export default {
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-.itemTitle a{
+
+.itemTitle a {
   font-size: 120%;
   font-weight: 400;
 }
 
+.loadingContainer .more{
+  font-size: 120%;
+  font-weight: 700;
+}
+.loadingContainer .more a {
+  font-weight: 700;
+}
 .meta {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
-.tags,.updateTime {
+
+.tags,
+.updateTime {
   overflow: hidden;
   white-space: nowrap;
 }
-
+h1 i {
+  text-transform:uppercase
+}
 </style>

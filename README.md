@@ -56,7 +56,7 @@ This page is not a replacement of steemit.com or else, so I will keep it simple 
     * [ ] Experimental: CHINESE web font!
     * [x] code tag
     * [ ] highlight.js theme
-* [ ] extract config file
+* [x] extract config file
   * USERNAME
   * Google font
   * header text
@@ -68,9 +68,9 @@ This page is not a replacement of steemit.com or else, so I will keep it simple 
   * [ ] KaTeX
   * [x] Vue
   * [x] lodash -> typography
-* [ ] author page
-  * show resteemed posts as another color
-  * tag page (if possible)
+* [x] author page
+  * [ ] show resteemed posts as another color
+  * [ ] tag page (if possible)
 * [x] router
 * [ ] add time and tag at post
 * [ ] table of contents
