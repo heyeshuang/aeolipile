@@ -11,10 +11,10 @@ import WebFont from 'webfontloader'
 
 // import './assets/typebase.css'
 // import "./assets/typography.css"
+Vue.use(siteConfig)
 Vue.use(VueRouter)
 Vue.use(ElementUI)
 Vue.use(VueClipboard)
-Vue.use(siteConfig)
 
 new Vue({
   el: '#app',

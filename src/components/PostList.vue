@@ -39,6 +39,7 @@ import DefaultContent from "~/components/DefaultContent.vue"
 const dSteem = () =>
   import ( /* webpackChunkName: "dsteem" */ "dsteem");
 export default {
+  props:["author"],
   data: function() {
     return {
       steemitUrl: "https://steemit.com/",
@@ -48,7 +49,7 @@ export default {
       loading: true,
       loaded: false,
       emptyContent: false,
-      author: this.$route.params.author,
+      // author: this.$route.params.author,
       start_permlink: "",
       endOfList: false,
       listLimit: 10
@@ -68,7 +69,13 @@ export default {
       return Vue.siteConfig.banner
     },
     genLink: function(author, permlink) {
-      return `/@${author}/${permlink}`
+      let link;
+      if (Vue.siteConfig.blogMode && Vue.siteConfig.author===author){
+        link = `/${permlink}`
+      } else{
+        link = `/@${author}/${permlink}`
+      }
+      return link
     },
     parseDateStr: function(dateStr) {
       let d = new Date(dateStr)

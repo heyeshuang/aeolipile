@@ -1,7 +1,7 @@
 <template>
 <el-container v-loading="loading">
   <el-header>
-    <h3>{{showBanner()}}</h3></el-header>
+    <h3><router-link :to="getParentUrl">{{showBanner()}}</router-link></h3></el-header>
   <el-main v-show="loaded">
     <h1>{{content.title}}</h1>
     <vue-markdown v-bind:source="content.body" :postrender="this.highLightHTML"></vue-markdown>
@@ -39,6 +39,7 @@ export default {
     VueMarkdown,
     DefaultContent
   },
+  props: ["author","permlink"],
   data: function() {
     return {
       content: {},
@@ -66,6 +67,14 @@ export default {
   //   });
   // },
   methods: {
+    getParentUrl: function(){
+      let path = this.$route.path
+      let pathArray = path.split("/")
+      pathArray.pop()
+      let pathParent="/"+pathArray.join("/")
+      console.warn(pathParent);
+      return pathParent
+    },
     showBanner: function() {
       return Vue.siteConfig.banner
     },
@@ -88,8 +97,8 @@ export default {
         const dsteem = await dSteem()
         const client = await new dsteem.Client(Vue.siteConfig.apiUrl);
         c = await client.database.call("get_content", [
-          this.$route.params.author,
-          this.$route.params.permlink
+          this.author,
+          this.permlink
           // "heyeshuang", "hugo-mmark-katex"
           // "heyeshuang",
           // "hugo"

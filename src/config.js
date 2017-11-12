@@ -6,7 +6,7 @@ export default {
       banner: "Aeolipile - Steem Powered",
       googleFonts: ['Neuton:200', 'Open Sans'],
       fallbackFontUrls: ['https://fonts.cat.net/css?family=Neuton:200|Open+Sans'],
-      blogMode: true,
+      blogMode: false,
       author: 'heyeshuang',
     }
   }
