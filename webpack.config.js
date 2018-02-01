@@ -21,9 +21,9 @@ module.exports = (options = {}) => ({
   },
   output: {
     path: resolve(__dirname, 'dist'),
-    filename: options.dev ? '[name].js' : '[name].js?[chunkhash]',
     // chunkFilename: '[id].js?[chunkhash]',
     chunkFilename: '[name]-[chunkhash].js',
+    filename: options.dev ? '[name].js' : '[name].js?[chunkhash]',
     publicPath: options.dev ? '/assets/' : publicPath
   },
   module: {
@@ -58,9 +58,9 @@ module.exports = (options = {}) => ({
     new HtmlWebpackPlugin({
       template: 'src/index.html'
     }),
-    new ScriptExtHtmlWebpackPlugin({
-      defaultAttribute: 'async'
-    }),
+    // new ScriptExtHtmlWebpackPlugin({
+    //   defaultAttribute: 'async'
+    // }),
     new BundleAnalyzerPlugin(),
     new webpack.optimize.ModuleConcatenationPlugin()
   ],
