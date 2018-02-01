@@ -48,36 +48,13 @@ This page is not a replacement of steemit.com or else, so I will keep it simple 
 
 
 ## TODO
-* [x] loading page
-* [x] error handing
-* [x] beautiful styles
-    * [x] load Google font, maybe Web Font Loader?
-      * [x] Wait! It cant be used in China!
-    * [ ] Experimental: CHINESE web font!
-    * [x] code tag
-    * [ ] highlight.js theme
-* [x] extract config file
-  * USERNAME
-  * Google font
-  * header text
-* [x] change the theme
-* [ ] trim!
-  * [ ] ElementUI
-  * [x] highlight.js
-  * [ ] dsteem
-  * [ ] KaTeX
-  * [x] Vue
-  * [x] lodash -> typography
 * [x] *author page*
-  * [ ] show resteemed posts as another color
+  * [x] show resteemed posts as another color
+    * dirtily added a note
   * [ ] tag page (if possible)
-* [x] router
-* [x] *blog mode*
+    * impossible due to API (https://github.com/steemit/steem/issues/1233)
 * [ ] add time and tag at post
 * [ ] table of contents
-* [x] page to get permlink
-* [x] links for homepage
-* [x] maybe some loading?
 * [ ] and this readme
   * Some credits!
 

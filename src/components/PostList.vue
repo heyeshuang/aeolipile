@@ -12,7 +12,7 @@
         </router-link>
       </div>
       <h4><div class="meta">
-        <div class="updateTime">&nbsp;{{parseDateStr(d.last_update)}}</div>
+        <div class="updateTime">&nbsp;{{parseDateStr(d.last_update)}}{{d.author==author?"":", resteemed from "+d.author}}</div>
         <div class="tags"><span class="tag" v-for="t in parseJsonTags(d.json_metadata)">&nbsp;#{{t}}&nbsp;</span></div>
       </div></h4>
     </div>
